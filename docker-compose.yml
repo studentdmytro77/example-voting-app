@@ -56,9 +56,9 @@ services:
       timeout: 3s
       retries: 3
 
-  volumes:
-    db-data:
+volumes:
+  db-data:
 
-  networks:
-    front-tier:
-    back-tier:
+networks:
+  front-tier:
+  back-tier:
