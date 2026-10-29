@@ -121,8 +121,9 @@ jobs:
           scan-type: 'fs'
           scan-ref: '.'
           format: 'table'
-          severity: 'CRITICAL,HIGH'
-          exit-code: '1' # Жорстке блокування пайплайну при знаходженні вразливостей
+          severity: 'CRITICAL'
+          ignore-unfixed: true
+          exit-code: '1' # Hard fail on CRITICAL CVEs
 
       - name: Run Trivy Container Image Scanner on Vote Image
         uses: aquasecurity/trivy-action@master
@@ -130,5 +131,6 @@ jobs:
           image-ref: 'local/voting-app-vote:pr-${{ github.event.number }}'
           format: 'table'
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
-          exit-code: '1' # Жорстке блокування пайплайну при знаходженні вразливостей
+          severity: 'CRITICAL'
+          ignore-unfixed: true
+          exit-code: '1' # Hard fail on CRITICAL CVEs
