@@ -1,8 +1,9 @@
 # base defines a base stage that uses the official python runtime base image
-FROM python:3.11-slim AS base
+FROM python:3.12-slim-bookworm AS base
 
-# Add curl for healthcheck
+# Update system packages for CVE fixes
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends curl && \
     rm -rf /var/lib/apt/lists/*
 
