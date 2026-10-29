@@ -76,7 +76,7 @@ jobs:
         run: |
           npm install
           node --check server.js
-          node --check ./tests/tests.js
+          node --check tests/render.js
 
       # --- Отримання залежностей та білд артефакту Worker (.NET) ---
       - name: Set up .NET SDK
